@@ -127,6 +127,7 @@ int main(){
             break;
             
         	default:
+                printf ("digite um numero valido \n");
             }
         printf ("\n Pressione Enter para continuar");
         getchar (); // Funciona com scanf
