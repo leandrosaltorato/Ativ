@@ -1,145 +1,170 @@
 #include <stdio.h>
-#include <locale.h>
 #include <stdlib.h>
-int main(){
-    setlocale(LC_ALL,"");
-    float val, val2;
-    int doc, contat, durac, opcao, serv, numquart, numlav, limpex, card, quarts, quartr, quartsu, quartd, quartl, pes;
-    char spa[20], email[20], formpag[20], equipesc[20], salg[20], ref[20], lanc[20], suc[20], doce[20]; //Ponteiro
+
+typedef struct {
+    char email[50];   
+    int contato, duracao, pessoas;
+    float valor;
+} Hotel;
+
+Hotel serv[10];
+int numHotel = 0;
+
+void fazerCheck();
+void solicitarServ();
+void fazerPed();
+
+int main() {
+    int opcao;
+
     do {
-    printf("Bem vindo ao hotel Bytecode, escolha a uma opção:\n");
-    printf("1. Fazer check-in \n");
-    printf("2. Solicitar serviço \n");
-    printf("3. Fazer pedido \n");
-    printf ("0. Sair\n" );
-    scanf("%d", &opcao);
-    switch (opcao) {
-        case 1:
-        	printf("Adicione seu email \n");
-        	scanf("%s", email);
-        	printf("Adicione um contato para comunicação \n");
-        	scanf("%d", &contat);
-        	printf("Quanto tempo de hospedagem você deseja? \n");
-        	scanf("%d", &durac);
-        	printf("Quantas pessoas irão se hospedar? \n");
-        	scanf("%d", &pes);
-        	val = durac * 350;
-        	val2 = (durac * 350) + 100;
-        	if (pes <= 5){
-            printf("O seu quarto será o Quarto Basico, o valor total da hospedagem será %.2f \n", val);
-        	}
-        	else {
-            	printf("O seu quarto é o Quarto Complex, com adicional de 100 reais, o valor total da hospedagem será %.2f \n", val2);
-        	}
-        	printf("Qual sera a forma de pagamento? \n" );
-        	scanf("%s", formpag);
-        	printf ("Seu cadastro foi feito com sucesso. Voce pode pagar a hospedagem na recepção, muito obrigado pela preferencia! \n");
-        	break; 
-        	case 2:
-            	printf("Selecione a opção de serviço \n");
-            	printf("1. Camareira \n");
-            	printf("2. Lavanderia \n");
-            	printf("3. Equipamentos de escritório \n");
-            	printf("4. Spa \n");
-            	printf("5. Limpeza extra \n");
-            	scanf("%d", &serv);
-            	switch (serv) {
-                	case 1:
-                	printf("Informe o numero do seu quarto \n");
-                	scanf ("%d", &numquart);
-                	printf("Esta marcado! \n");
-                	break;
-                	case 2:
-                	printf("Informe o numero do seu quarto \n");
-                	scanf("%d", &numlav);
-                	printf("Esta marcado! \n");
-                	break;
-                	case 3:
-                	printf("Informe qual equipamento você necessita \n");
-                	scanf("%s", equipesc);
-                	printf("Esta marcado! \n" );
-                	break;
-                	case 4:
-                	printf("Informe o horario que você quer marcar sua sessão \n");
-                	scanf ("%s", spa);
-                	printf("Esta marcado! \n");
-                	break;
-                	case 5:
-                	printf("Informe numero do seu quarto \n");
-                	scanf("%d", &limpex);
-                	printf("Esta marcado! \n");
-                	break;
-                	default:
-                    	printf ("ERRO, volte ao inicio \n" );
-                	return 0;
-            	}
-        	break;
-        	case 3:
-            	printf("Selecione seu pedido \n");
-            	printf("1. Salgados: Coxinha R$ 5,00 - Pastel de Carne R$ 4,50 - Empada de Frango R$ 4,00 - Kibe - R$ 3,50 \n");
-            	printf("2. Refrigerantes: Coca-Cola (350ml) R$ 4,00 - Guaraná Antarctica (350ml) R$ 4,00 - Fanta Laranja (350ml) R$ 4,00 - Sprite (350ml) R$ 4,00 \n");
-            	printf("3. Lanches: X-Salada R$ 12,00 - X-Bacon R$ 14,00 - Misto Quente R$ 8,00 - Sanduíche Natural R$ 10,00 \n");
-            	printf("4. Sucos: Suco de Laranja (300ml) - Suco de Maracujá (300ml) - Suco de Morango (300ml) - Suco de Abacaxi (300ml) - Todos R$ 6,00 \n");
-            	printf("5. Doces: Brigadeiro R$ 2,50 - Bolo de Chocolate R$ 4,50 - Pudim R$ 5,00 - Bolo de Cenoura R$ 4,00 \n");
-            	scanf("%d", &card);
-            	switch (card) {
-                	case 1:
-                	printf("Qual numero do seu quarto? \n");
-                	scanf ("%d", &quarts);
-                	printf("Qual salgado? \n");
-                	scanf ("%s", salg);
-                	printf("Chegará no seu quarto em 10 minutos!");
-                	break;
-                	case 2:
-                	printf("Qual numero do seu quarto? \n");
-                	scanf ("%d", &quartr);
-                	printf("Qual refrigerante? \n");
-                	scanf("%s", ref);
-                	printf("Chegará no seu quarto em 10 minutos!");
-                	break;
-                	case 3:
-                	printf("Qual numero do seu quarto? \n");
-                	scanf ("%d", &quartl);
-                	printf("Qual lanche? \n");
-                	scanf("%s", lanc);
-                	printf("Chegará no seu quarto em 10 minutos!");
-                	break;
-                	case 4:
-                	printf("Qual numero do seu quarto? \n");
-                	scanf ("%d", &quartsu);
-                	printf("Qual suco? \n");
-                	scanf ("%s", suc);
-                	printf("Chegará no seu quarto em 10 minutos!");
-                	break;
-                	case 5:
-                	printf("Qual numero do seu quarto? \n");
-                	scanf ("%d", &quartd);
-                	printf("Qual doce? \n");
-                	scanf("%s", doce);
-                	printf("Chegará no seu quarto em 10 minutos!");
-                	break;
-                	default:
-                    	printf ("ERRO, volte ao inicio \n" );
-            	}
-            break;
+        printf("------Bem vindo ao hotel Bytecode-------\n");
+        printf("Escolha uma opção:\n");
+        printf("1. Fazer check-in\n");
+        printf("2. Solicitar serviço\n");
+        printf("3. Fazer pedido\n");
+        printf("0. Sair\n");
+        scanf("%d", &opcao);
+
+        switch (opcao) {
+            case 1:
+                fazerCheck();
+                break;
+            case 2:
+                solicitarServ();
+                break;
+            case 3:
+                fazerPed();
+                break;
             case 0:
-                printf("Saindo...\n");
-            break;
-            
-        	default:
-                printf ("digite um numero valido \n");
-            }
-        printf ("\n Pressione Enter para continuar");
-        getchar (); // Funciona com scanf
-        getchar (); // Aguarda o enter 
-        
-        system("clear");
+                printf("Obrigado !!\n");
+                break;
+            default:
+                printf("Opção Inválida!\n");
+                break;
+        }
     } while (opcao != 0);
-        	return 0;
+
+    return 0;
+}
+
+void fazerCheck() {
+    if (numHotel >= 20) {
+        printf("Limite de hóspedes atingido!\n");
     }
- 
-        return 0;
+    Hotel h;
+
+    printf("Digite seu email (sem espaços): \n");
+    scanf("%s", h.email);
+
+    printf("Digite seu telefone (apenas números): \n");
+    scanf("%d", &h.contato);
+
+    printf("Quantos dias deseja ficar? \n");
+    scanf("%d", &h.duracao);
+
+    printf("Quantas pessoas irão se hospedar? \n");
+    scanf("%d", &h.pessoas);
+
+    if (h.pessoas <= 5) {
+        h.valor = h.duracao * 350;
+        printf("Quarto Básico. Valor total: R$ %.2f\n", h.valor);
+    } else {
+        h.valor = h.duracao * 350 + 100;
+        printf("Quarto Complexo com adicional de R$ 100. Valor total: R$ %.2f\n", h.valor);
     }
-    
-return 0; 
+
+    numHotel++;
+
+    printf("Check-in realizado com sucesso!\n");
+    printf("Pressione Enter para continuar...");
+    getchar(); getchar();
+    system("clear");
+}
+
+void solicitarServ() {
+    int opcao, quarto;
+
+    printf("Selecione o serviço:\n");
+    printf("1. Camareira\n");
+    printf("2. Lavanderia\n");
+    printf("3. Equipamento de escritório\n");
+    printf("4. Spa\n");
+    printf("5. Limpeza extra\n");
+    scanf("%d", &opcao);
+
+    printf("Informe o número do quarto: \n");
+    scanf("%d", &quarto);
+
+    switch(opcao) {
+        case 1:
+            printf("Serviço de Camareira solicitado para o quarto %d\n", quarto);
+            break;
+        case 2:
+            printf("Serviço de Lavanderia solicitado para o quarto %d\n", quarto);
+            break;
+        case 3:
+            printf("Equipamento de escritório solicitado para o quarto %d\n", quarto);
+            break;
+        case 4:
+            printf("Sessão no Spa solicitada para o quarto %d\n", quarto);
+            break;
+        case 5:
+            printf("Limpeza extra solicitada para o quarto %d\n", quarto);
+            break;
+        default:
+            printf("Opção inválida!\n");
+    }
+    printf("Pressione Enter para continuar...");
+    getchar(); getchar();
+    system("clear");
+}
+
+void fazerPed() {
+    int opcao, quarto;
+    char salg[50], ref[50], lanc[50], doce[50], suc[50];
+    printf("Selecione seu pedido:\n");
+    printf("1. Salgados: Coxinha R$ 5,00 - Pastel de Carne R$ 4,50 - Empada de Frango R$ 4,00 - Kibe - R$ 3,50 \n");
+    printf("2. Refrigerantes: Coca-Cola (350ml) R$ 4,00 - Guaraná Antarctica (350ml) R$ 4,00 - Fanta Laranja (350ml) R$ 4,00 - Sprite (350ml) R$ 4,00 \n");
+    printf("3. Lanches: X-Salada R$ 12,00 - X-Bacon R$ 14,00 - Misto Quente R$ 8,00 - Sanduíche Natural R$ 10,00 \n");
+    printf("4. Sucos: Suco de Laranja (300ml) - Suco de Maracujá (300ml) - Suco de Morango (300ml) - Suco de Abacaxi (300ml) - Todos R$ 6,00 \n");
+    printf("5. Doces: Brigadeiro R$ 2,50 - Bolo de Chocolate R$ 4,50 - Pudim R$ 5,00 - Bolo de Cenoura R$ 4,00 \n");
+    scanf("%d", &opcao);
+
+    printf("Número do quarto: \n");
+    scanf("%d", &quarto);
+
+    switch(opcao) {
+        case 1:
+            printf("Qual(is) salgado(s)? \n");
+            scanf ("%s", salg);
+            printf("Pedido de Salgados para o quarto %d recebido.\n", quarto);
+            break;
+        case 2:
+            printf("Qual(is) refrigerante(s)? \n");
+            scanf ("%s", ref);
+            printf("Pedido de Refrigerantes para o quarto %d recebido.\n", quarto);
+            break;
+        case 3:
+            printf("Qual(is) lanche(s)? \n");
+            scanf ("%s", lanc);
+            printf("Pedido de Lanches para o quarto %d recebido.\n", quarto);
+            break;
+        case 4:
+            printf("Qual(is) suco(s)? \n");
+            scanf ("%s", suc);
+            printf("Pedido de Sucos para o quarto %d recebido.\n", quarto);
+            break;
+        case 5:
+            printf("Qual(is) doce(s)? \n");
+            scanf ("%s", doce);
+            printf("Pedido de Doces para o quarto %d recebido.\n", quarto);
+            break;
+        default:
+            printf("Opção inválida!\n");
+    }
+    printf("Chegará em até 10 minutos!\n");
+    printf("Pressione Enter para continuar...");
+    getchar(); getchar();
+    system("clear");
 }
