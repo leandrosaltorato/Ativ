@@ -138,27 +138,27 @@ void fazerPed() {
         case 1:
             printf("Qual(is) salgado(s)? \n");
             scanf ("%s", salg);
-            printf("Pedido de Salgados para o quarto %d recebido.\n", quarto);
+            printf("Pedido de salgados para o quarto %d recebido.\n", quarto);
             break;
         case 2:
             printf("Qual(is) refrigerante(s)? \n");
             scanf ("%s", ref);
-            printf("Pedido de Refrigerantes para o quarto %d recebido.\n", quarto);
+            printf("Pedido de refrigerantes para o quarto %d recebido.\n", quarto);
             break;
         case 3:
             printf("Qual(is) lanche(s)? \n");
             scanf ("%s", lanc);
-            printf("Pedido de Lanches para o quarto %d recebido.\n", quarto);
+            printf("Pedido de lanches para o quarto %d recebido.\n", quarto);
             break;
         case 4:
             printf("Qual(is) suco(s)? \n");
             scanf ("%s", suc);
-            printf("Pedido de Sucos para o quarto %d recebido.\n", quarto);
+            printf("Pedido de sucos para o quarto %d recebido.\n", quarto);
             break;
         case 5:
             printf("Qual(is) doce(s)? \n");
             scanf ("%s", doce);
-            printf("Pedido de Doces para o quarto %d recebido.\n", quarto);
+            printf("Pedido de doces para o quarto %d recebido.\n", quarto);
             break;
         default:
             printf("Opção inválida!\n");
