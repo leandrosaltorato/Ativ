@@ -163,7 +163,7 @@ void fazerPed() {
         default:
             printf("Opção inválida!\n");
     }
-    printf("Chegará em até 10 minutos!\n");
+    printf("Chegara em até 10 minutos!\n");
     printf("Pressione Enter para continuar...");
     getchar(); getchar();
     system("clear");
